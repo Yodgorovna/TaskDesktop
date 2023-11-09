@@ -8,6 +8,6 @@ namespace Product.Desktop.API
 {
     public class BaseAPI
     {
-        public static readonly string BASE_URL = "";
+        public static readonly string BASE_URL = "http://138.197.55.153:8080";
     }
 }

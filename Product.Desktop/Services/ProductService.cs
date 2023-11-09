@@ -11,23 +11,22 @@ using System.Threading.Tasks;
 
 namespace Product.Desktop.Services
 {
-    public class ProductService : IProductRepository
+    public class ProductService : IProductService
     {
         public async Task<int> CreateAsync(ProductCreateDto dto)
         {
             try
             {
                 var client = new HttpClient();
-                var request = new HttpRequestMessage(HttpMethod.Post, BaseAPI.BASE_URL + "/api/client/storages");
-
+                var request = new HttpRequestMessage(HttpMethod.Post, $"{BaseAPI.BASE_URL}/api/product");
                 var content = new MultipartFormDataContent();
                 content.Add(new StringContent(dto.Name), "Name");
                 content.Add(new StringContent(dto.Type), "Type");
+                content.Add(new StringContent((dto.Price).ToString()), "Price");
                 content.Add(new StringContent(dto.Brand), "Brand");
-                content.Add(new StringContent(dto.Price.ToString()), "Price");
-
                 request.Content = content;
                 var response = await client.SendAsync(request);
+
                 if (response.IsSuccessStatusCode)
                 {
                     var res = await response.Content.ReadAsStringAsync();

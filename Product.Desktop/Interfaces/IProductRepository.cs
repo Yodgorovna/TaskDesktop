@@ -6,13 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Product.Desktop.Interfaces
+namespace Product.Desktop.Interfaces;
+
+public interface IProductService
 {
-    public interface IProductRepository
-    {
-        public Task<int> CreateAsync(ProductCreateDto dto);
-        public Task<int> UpdateAsync(ProductUpdateDto dto);
-        public Task<int> DeleteAsync(long Id);
-        public Task<IList<ProductViewModel>> GetAllAsync();
-    }
+    public Task<int> CreateAsync(ProductCreateDto dto);
+    public Task<int> UpdateAsync(ProductUpdateDto dto);
+    public Task<int> DeleteAsync(long Id);
+    public Task<IList<ProductViewModel>> GetAllAsync();
 }
