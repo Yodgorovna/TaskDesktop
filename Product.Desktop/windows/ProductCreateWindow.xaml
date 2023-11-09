@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="ProductCreateWindow" 
         Height="450" 
-        Width="450">
+        Width="450"
+        >
     <Border>
         <Grid>
             <Grid.ColumnDefinitions>

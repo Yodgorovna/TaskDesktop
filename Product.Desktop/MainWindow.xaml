@@ -21,7 +21,6 @@
                     Margin="10"
                     Width="120"
                     Background="Green">
-                
             </Button>
             <Button x:Name="btnProductupdate"
                     Content="Update"
@@ -29,7 +28,6 @@
                     Margin="10"
                     Background="Orange"
                     Width="100">
-
             </Button>
             <Button x:Name="btnProductDelete"
                     Content="Delete"
@@ -37,7 +35,6 @@
                     Margin="10"
                     Background="Red"
                     Width="100">
-
             </Button>
         </StackPanel>
         <Border Grid.Row="1">
