@@ -56,5 +56,10 @@ namespace Product.Desktop.windows
 
             }
         }
+
+        private void btnCreate_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }
