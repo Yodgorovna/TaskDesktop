@@ -17,6 +17,7 @@
                     Margin="10">
             <Button x:Name="btnProductCreate"
                     Content="Create"
+                    Click="btn_create_product"
                     FontSize="18"
                     Margin="10"
                     Width="120"
