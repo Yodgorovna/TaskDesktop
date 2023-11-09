@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Product.Desktop.windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,12 @@ namespace Product.Desktop
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btn_create_product(object sender, RoutedEventArgs e)
+        {
+            ProductCreateWindow productCreateWindow = new ProductCreateWindow();
+            productCreateWindow.ShowDialog();
         }
     }
 }
