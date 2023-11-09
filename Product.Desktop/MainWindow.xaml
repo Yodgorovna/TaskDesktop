@@ -15,27 +15,42 @@
         <StackPanel Grid.Row="0"
                     Orientation="Horizontal"
                     Margin="10">
-            <Button x:Name="btnProductCreate"
-                    Content="Create"
-                    FontSize="18"
+            <Border x:Name="btnProductCreate"
+                    CornerRadius="10"
                     Margin="10"
                     Width="120"
                     Background="Green">
-            </Button>
-            <Button x:Name="btnProductupdate"
-                    Content="Update"
-                    FontSize="18"
+                <Label  Content="Create"
+                        FontSize="18"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                    
+                </Label>
+            </Border>
+            <Border x:Name="btnProductUpdate"
+                    CornerRadius="10"
                     Margin="10"
-                    Background="Orange"
-                    Width="100">
-            </Button>
-            <Button x:Name="btnProductDelete"
-                    Content="Delete"
-                    FontSize="18"
+                    Width="120"
+                    Background="Orange">
+                <Label  Content="Create"
+                        FontSize="18"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+
+                </Label>
+            </Border>
+            <Border x:Name="btnProductDelete"
+                    CornerRadius="10"
                     Margin="10"
-                    Background="Red"
-                    Width="100">
-            </Button>
+                    Width="120"
+                    Background="Red">
+                <Label  Content="Create"
+                        FontSize="18"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+
+                </Label>
+            </Border>
         </StackPanel>
         <Border Grid.Row="1">
             <ScrollViewer Grid.Row="1">
