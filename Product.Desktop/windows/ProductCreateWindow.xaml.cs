@@ -15,13 +15,18 @@ using System.Windows.Shapes;
 namespace Product.Desktop.windows
 {
     /// <summary>
-    /// Interaction logic for CreatePruduct.xaml
+    /// Interaction logic for ProductCreateWindow.xaml
     /// </summary>
-    public partial class CreatePruduct : Window
+    public partial class ProductCreateWindow : Window
     {
-        public CreatePruduct()
+        public ProductCreateWindow()
         {
             InitializeComponent();
+        }
+
+        private void create_product(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
