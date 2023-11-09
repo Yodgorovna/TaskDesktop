@@ -5,8 +5,83 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Product.Desktop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Products" Height="750" Width="1050"
+        WindowStartupLocation="CenterScreen">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="6*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0"
+                    Orientation="Horizontal"
+                    Margin="10">
+            <Button x:Name="btnProductCreate"
+                    Content="Create"
+                    FontSize="18"
+                    Margin="10"
+                    Width="120"
+                    Background="Green">
+                
+            </Button>
+            <Button x:Name="btnProductupdate"
+                    Content="Update"
+                    FontSize="18"
+                    Margin="10"
+                    Background="Orange"
+                    Width="100">
 
+            </Button>
+            <Button x:Name="btnProductDelete"
+                    Content="Delete"
+                    FontSize="18"
+                    Margin="10"
+                    Background="Red"
+                    Width="100">
+
+            </Button>
+        </StackPanel>
+        <Border Grid.Row="1">
+            <ScrollViewer Grid.Row="1">
+                <DataGrid x:Name="grStorage"
+                      IsReadOnly="True"
+                      AutoGenerateColumns="False"
+                      FontSize="16"
+                      FontFamily="send-series"
+                      HorizontalAlignment="Center"
+                      Foreground="#083353"
+                      >
+                    <DataGrid.Resources>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="#fb7657"/>
+                        </Style>
+                    </DataGrid.Resources>
+
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FFBBAC" />
+                                </Trigger>
+                                <Trigger Property="IsMouseCaptured" Value="True">
+                                    <Setter Property="Background" Value="#EDAEA0" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.RowStyle>
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="*" Header="ID" Binding="{Binding BarCode}">
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="*" Header="Name" Binding="{Binding Category}" />
+                        <DataGridTextColumn Width="*" Header="Type" Binding="{Binding Subcategory}" />
+                        <DataGridTextColumn Width="*" Header="Brand" Binding="{Binding Quantity}" />
+                        <DataGridTextColumn Width="*" Header="Price" Binding="{Binding Price}" />
+                        <DataGridTextColumn Width="*" Header="Created" Binding="{Binding SoldPrice}"/>
+                        <DataGridTextColumn Width="*" Header="Updated" Binding="{Binding SoldPrice}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+
+        </Border>
     </Grid>
 </Window>
