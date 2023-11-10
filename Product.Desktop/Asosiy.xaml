@@ -23,7 +23,7 @@
 
             </Border>
             <Border Background="Transparent" Height="30" Width="90" Margin="650,25,25,645" CornerRadius="0">
-                <Button BorderThickness="0" FontFamily="JetBrains Mono" Foreground="White" Height="25" Width="90"  Content="Search" x:Name="search" Background="ForestGreen" />
+                <Button BorderThickness="0" FontFamily="JetBrains Mono" Foreground="White" Height="25" Width="90"  Content="Search" Click="btnSearch" Background="ForestGreen" />
             </Border>
             
             <Border Height="25" 
