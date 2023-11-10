@@ -6,6 +6,7 @@ using Product.Desktop.windows;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
+using System.Windows.Interop;
 
 namespace Product.Desktop
 {
@@ -126,6 +127,11 @@ namespace Product.Desktop
 
                 dgProducts.Items.Add(item);
             }
+        }
+
+        private void deletedbtn(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Savebutton");
         }
     }
 }
