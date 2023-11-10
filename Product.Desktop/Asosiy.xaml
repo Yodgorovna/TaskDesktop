@@ -126,6 +126,10 @@
                     <ComboBoxItem Content="Brand" FontFamily="JetBrains Mono"></ComboBoxItem>
                 </ComboBox>
             </Border>
+            <Border Background="ForestGreen"  Height="25" Width="90" Margin="791,0,0,485" CornerRadius="0">
+                <Button x:Name="apply" Foreground="White" Click="deletedbtn" Content="Deleted" BorderThickness="0" Background="red"/>
+
+            </Border>
             <Border Height="30" 
             Margin="776,91,0,579"
             Width="160" 
@@ -138,7 +142,7 @@
                     <ComboBoxItem Content="Type" FontFamily="JetBrains Mono"></ComboBoxItem>
                 </ComboBox>
             </Border>
-
+        
           
 
             <DataGrid x:Name="dgProducts" 
@@ -168,8 +172,6 @@
                     <DataGridTextColumn Header="   Brand" Binding="{Binding Brand}" Width="200"/>
                     <DataGridTextColumn Header="   CreatedAt" Binding="{Binding CreatedAt}" Width="200"/>
                     <DataGridTextColumn Header="   UpdatedAt" Binding="{Binding CreatedAt}" Width="200"/>
-
-
                 </DataGrid.Columns>
 
             </DataGrid>
