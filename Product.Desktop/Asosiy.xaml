@@ -13,6 +13,9 @@
         <Border Background="Transparent" Height="30" Width="90" Margin="400,25,25,645" CornerRadius="0">
             <Button BorderThickness="0" FontFamily="JetBrains Mono" Foreground="White" Height="25" Width="90"  Content="Refresh" Click="btnRefresh" Background="ForestGreen" />
         </Border>
+        <Border Background="Transparent" Height="30" Width="90" Margin="400,25,25,645" CornerRadius="0">
+            <Button BorderThickness="0" FontFamily="JetBrains Mono" Foreground="White" Height="25" Width="90"  Content="Create" Click="btnCreate" Background="ForestGreen" />
+        </Border>
         <Grid Height="700" Width="1200">
     
             <Border Height="30" Width="190" Margin="990,0,0,620" CornerRadius="15" BorderThickness="2" BorderBrush="#8A94A6" >
