@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Product.Desktop.windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,12 @@ namespace Product.Desktop
         private void btnRefresh(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Hello");
+        }
+
+        private void btnCreate(object sender, RoutedEventArgs e)
+        {
+            ProductCreateWindow productCreateWindow = new ProductCreateWindow();
+            productCreateWindow.ShowDialog();
         }
     }
 }
