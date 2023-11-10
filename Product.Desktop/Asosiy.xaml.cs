@@ -23,5 +23,10 @@ namespace Product.Desktop
         {
             InitializeComponent();
         }
+
+        private void btnRefresh(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Hello");
+        }
     }
 }
