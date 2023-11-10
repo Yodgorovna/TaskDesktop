@@ -13,5 +13,5 @@ public interface IProductService
     public Task<int> CreateAsync(ProductCreateDto dto);
     public Task<int> UpdateAsync(ProductUpdateDto dto);
     public Task<int> DeleteAsync(long Id);
-    public Task<IList<ProductViewModel>> GetAllAsync();
+    public Task<IList<ProductViewModel>> GetAllAsync(int page);
 }

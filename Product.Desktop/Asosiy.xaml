@@ -13,7 +13,7 @@
         <Border Background="Transparent" Height="30" Width="90" Margin="400,25,25,645" CornerRadius="0">
             <Button BorderThickness="0" FontFamily="JetBrains Mono" Foreground="White" Height="25" Width="90"  Content="Refresh" Click="btnRefresh" Background="ForestGreen" />
         </Border>
-        <Border Background="Transparent" Height="30" Width="90" Margin="400,25,25,645" CornerRadius="0">
+        <Border Background="Transparent" Height="30" Width="90" Margin="200,25,25,645" CornerRadius="0">
             <Button BorderThickness="0" FontFamily="JetBrains Mono" Foreground="White" Height="25" Width="90"  Content="Create" Click="btnCreate" Background="ForestGreen" />
         </Border>
         <Grid Height="700" Width="1200">
@@ -139,10 +139,7 @@
                 </ComboBox>
             </Border>
 
-            <Border Background="#FF3D5160"  Height="25" Width="90" Margin="900,0,0,485" CornerRadius="50">
-                <Button x:Name="apply" Foreground="White"  Content="Apply" BorderThickness="0" Background="ForestGreen" FontFamily="JetBrains Mono"/>
-
-            </Border>
+          
 
             <DataGrid x:Name="dgProducts" 
                   RowBackground="AliceBlue"
@@ -155,7 +152,7 @@
                 <DataGrid.Resources>
                     <Style TargetType="{x:Type DataGrid}">
                         <Setter Property="Background" Value="White"/>
-                        <Setter Property="FontSize" Value="23"/>
+                        <Setter Property="FontSize" Value="25"/>
                         <Setter Property="FontWeight" Value="SemiBold"/>
                         <Setter Property="BorderThickness" Value="2"/>
                         <Setter Property="BorderBrush" Value="#3D5160"/>
@@ -165,10 +162,10 @@
                 </DataGrid.Resources>
 
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="   Name" Binding="{Binding CategoryName}" Width="200"/>
-                    <DataGridTextColumn Header="   Type" Binding="{Binding BrandName}" Width="180"/>
-                    <DataGridTextColumn Header="   Price" Binding="{Binding Name}" Width="200"/>
-                    <DataGridTextColumn Header="   Brand" Binding="{Binding UnitPrice}" Width="200"/>
+                    <DataGridTextColumn Header="   Name" Binding="{Binding Name}" Width="200"/>
+                    <DataGridTextColumn Header="   Type" Binding="{Binding  Type}" Width="180"/>
+                    <DataGridTextColumn Header="   Price" Binding="{Binding Price}" Width="200"/>
+                    <DataGridTextColumn Header="   Brand" Binding="{Binding Brand}" Width="200"/>
                     <DataGridTextColumn Header="   CreatedAt" Binding="{Binding CreatedAt}" Width="200"/>
                     <DataGridTextColumn Header="   UpdatedAt" Binding="{Binding CreatedAt}" Width="200"/>
 

@@ -1,4 +1,7 @@
-﻿using Product.Desktop.windows;
+﻿using Product.Desktop.Interfaces;
+using Product.Desktop.Services;
+using Product.Desktop.ViewModels;
+using Product.Desktop.windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,14 +23,32 @@ namespace Product.Desktop
     /// </summary>
     public partial class Asosiy : Window
     {
+        private IProductService _service;
+
         public Asosiy()
         {
             InitializeComponent();
+            this._service = new ProductService();
         }
 
-        private void btnRefresh(object sender, RoutedEventArgs e)
+        private async void btnRefresh(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Hello");
+            dgProducts.Items.Clear();
+
+            var product = await _service.GetAllAsync(1);
+            for (int i = 0; i < product.Count; i++)
+            {
+                ProductViewModel item = new ProductViewModel();
+                item.Id = product[i].Id;
+                item.Name = product[i].Name;
+                item.Type = product[i].Type;
+                item.Brand= product[i].Brand;
+                item.Price = product[i].Price;
+                item.CreatedAt = product[i].CreatedAt;
+                item.UpdatedAt = product[i].UpdatedAt;
+
+                dgProducts.Items.Add(item);
+            }
         }
 
         private void btnCreate(object sender, RoutedEventArgs e)

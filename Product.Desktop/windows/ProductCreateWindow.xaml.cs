@@ -23,15 +23,16 @@ namespace Product.Desktop.windows
     public partial class ProductCreateWindow : Window
     {
         private IProductService _productService;
-        public const string Ok_Hand = "👌";
-        public const string Revolving_Hearts = "💞";
         public ProductCreateWindow()
         {
             InitializeComponent();
             this._productService = new ProductService();
         }
 
-        private async void create_product(object sender, RoutedEventArgs e)
+     
+
+
+        private async void create_product(object sender, MouseButtonEventArgs e)
         {
             if (txt_brand.Text.Length > 0 && txt_name.Text.Length > 0 && txt_price.Text.Length > 0 && txt_type.Text.Length > 0)
             {
@@ -42,24 +43,12 @@ namespace Product.Desktop.windows
                     Brand = txt_brand.Text,
                     Price = Convert.ToDouble(txt_price.Text),
                 };
-                
+
                 var result = await _productService.CreateAsync(productCreateDto);
 
                 if (result > 0)
-                {
-                    MessageBox.Show(Ok_Hand);
-                    MessageBox.Show(Revolving_Hearts);
-                }
-                else
-                    MessageBox.Show(Revolving_Hearts);
-
-
+                    MessageBox.Show("Save");
             }
-        }
-
-        private void btnCreate_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-
         }
     }
 }
