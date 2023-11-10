@@ -26,10 +26,20 @@ namespace Product.Desktop
             InitializeComponent();
         }
 
-        private void btn_create_product(object sender, RoutedEventArgs e)
+        private void btnProductCreate_MouseDown(object sender, MouseButtonEventArgs e)
         {
             ProductCreateWindow productCreateWindow = new ProductCreateWindow();
             productCreateWindow.ShowDialog();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        public void RefreshAsync()
+        {
+
         }
     }
 }

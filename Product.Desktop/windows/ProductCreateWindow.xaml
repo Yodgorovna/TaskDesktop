@@ -103,6 +103,7 @@
                             Margin="5 20 5 0"
                             CornerRadius="5"
                             BorderThickness="1"
+                            Cursor="Hand"
                             BorderBrush="Gray"
                             Background="Green"
                             Height="50"
