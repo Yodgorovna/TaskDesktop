@@ -99,7 +99,7 @@
                     </Border>
 
                     <Border x:Name="btnCreate"
-                            MouseDown="btnCreate_MouseDown"
+                            MouseDown="create_product"
                             Margin="5 20 5 0"
                             CornerRadius="5"
                             BorderThickness="1"

@@ -1,12 +1,11 @@
-﻿using Product.Desktop.API;
+﻿using Newtonsoft.Json;
+using Product.Desktop.API;
 using Product.Desktop.Dtos;
 using Product.Desktop.Interfaces;
 using Product.Desktop.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Product.Desktop.Services
@@ -45,9 +44,22 @@ namespace Product.Desktop.Services
             throw new NotImplementedException();
         }
 
-        public Task<IList<ProductViewModel>> GetAllAsync()
+        public async Task<IList<ProductViewModel>> GetAllAsync(int page)
         {
-            throw new NotImplementedException();
+            try
+            {
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new Uri($"{BaseAPI.BASE_URL}" + $"/api/product?page={page}");
+                HttpResponseMessage message = await client.GetAsync(client.BaseAddress);
+                string response = await message.Content.ReadAsStringAsync();
+                List<ProductViewModel> posts = JsonConvert.DeserializeObject<List<ProductViewModel>>(response)!;
+
+                return posts;
+            }
+            catch
+            {
+                return new List<ProductViewModel>();
+            }
         }
 
         public Task<int> UpdateAsync(ProductUpdateDto dto)
