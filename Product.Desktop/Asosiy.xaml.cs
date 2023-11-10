@@ -16,6 +16,7 @@ namespace Product.Desktop
     {
         private IList<ProductViewModel> searchProducts;
         private IProductService _service;
+        private int page = 1;
 
         public Asosiy()
         {
@@ -27,7 +28,7 @@ namespace Product.Desktop
         {
             dgProducts.Items.Clear();
 
-            var product = await _service.GetAllAsync(1);
+            var product = await _service.GetAllAsync(page);
             searchProducts = new List<ProductViewModel>();
             searchProducts = await _service.GetAllAsync(1);
             for (int i = 0; i < product.Count; i++)
@@ -80,6 +81,51 @@ namespace Product.Desktop
                 dgProducts.Items.Add(item);
             }
 
+        }
+
+        private async void btnNext(object sender, RoutedEventArgs e)
+        {
+            dgProducts.Items.Clear();
+
+            var product = await _service.GetAllAsync(page+1);
+            searchProducts = new List<ProductViewModel>();
+            searchProducts = await _service.GetAllAsync(1);
+            for (int i = 0; i < product.Count; i++)
+            {
+                ProductViewModel item = new ProductViewModel();
+                item.Id = product[i].Id;
+                item.Name = product[i].Name;
+                item.Type = product[i].Type;
+                item.Brand = product[i].Brand;
+                item.Price = product[i].Price;
+                item.CreatedAt = product[i].CreatedAt;
+                item.UpdatedAt = product[i].UpdatedAt;
+
+                dgProducts.Items.Add(item);
+            }
+        }
+
+        private async void btnPervouce(object sender, RoutedEventArgs e)
+        {
+            dgProducts.Items.Clear();
+
+            int pagenum = page > 1 ? (page - 1) : 1; 
+            var product = await _service.GetAllAsync(pagenum);
+            searchProducts = new List<ProductViewModel>();
+            searchProducts = await _service.GetAllAsync(1);
+            for (int i = 0; i < product.Count; i++)
+            {
+                ProductViewModel item = new ProductViewModel();
+                item.Id = product[i].Id;
+                item.Name = product[i].Name;
+                item.Type = product[i].Type;
+                item.Brand = product[i].Brand;
+                item.Price = product[i].Price;
+                item.CreatedAt = product[i].CreatedAt;
+                item.UpdatedAt = product[i].UpdatedAt;
+
+                dgProducts.Items.Add(item);
+            }
         }
     }
 }
