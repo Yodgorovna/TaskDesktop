@@ -127,7 +127,7 @@
                 </ComboBox>
             </Border>
             <Border Background="ForestGreen"  Height="25" Width="90" Margin="791,0,0,485" CornerRadius="0">
-                <Button x:Name="apply" Foreground="White" Click="deletedbtn" Content="Deleted" BorderThickness="0" Background="red"/>
+                <Button Foreground="White" Click="deletedbtn" Content="Delete" BorderThickness="0" Background="red"/>
 
             </Border>
             <Border Height="30" 
@@ -149,6 +149,7 @@
                   RowBackground="AliceBlue"
                   AlternatingRowBackground="#ABADB3"
                   Foreground="Black"
+                  IsReadOnly="true"
                   Background="ForestGreen" VerticalAlignment="Top" HorizontalAlignment="Center" 
                   Height="475" Width="1164" Margin="0,146,0,0" BorderThickness="1" BorderBrush="#FF212F42" 
                   FontFamily="JetBrains Mono" FontSize="22" FontWeight="SemiBold" FontStyle="Italic" >

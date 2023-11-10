@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace Product.Desktop.Services
 {
@@ -39,9 +40,24 @@ namespace Product.Desktop.Services
             }
         }
 
-        public Task<int> DeleteAsync(long Id)
+        public async Task<int> DeleteAsync(Guid Id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new Uri($"{BaseAPI.BASE_URL}" + $"/api/product/{Id}");
+                var result = await client.DeleteAsync(client.BaseAddress);
+                string response = await result.Content.ReadAsStringAsync();
+                if(result.IsSuccessStatusCode)
+                {
+                    return 1;
+                }
+                return 0;
+            }
+            catch
+            {
+                return 0;
+            }
         }
 
         public async Task<IList<ProductViewModel>> GetAllAsync(int page)
