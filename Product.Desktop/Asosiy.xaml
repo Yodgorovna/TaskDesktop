@@ -37,7 +37,7 @@
                 <DockPanel Margin="0,0,8,0" Width="NaN">
                     <TextBox x:Name="tbMin"
                                          MaxLength="7" 
-                                         Text="2000" 
+                                         Text="77" 
                                          Margin="10,0,0,0" 
                                          Foreground="#323B4B" 
                                          BorderThickness="0" 
@@ -58,7 +58,7 @@
                                         FontSize="36"/>
                     <TextBox x:Name="tbMax"
                                          MaxLength="7" 
-                                         Text="7500000" 
+                                         Text="777" 
                                          Margin="5,0,0,0" 
                                          Foreground="#323B4B" 
                                          BorderThickness="0" 
@@ -174,7 +174,7 @@
 
             </DataGrid>
             <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0,625,0,42">
-                <Button  x:Name="btnPervouce"
+                <Button 
                      Background="ForestGreen"
                      Foreground="AliceBlue"
                         HorizontalContentAlignment="Center"
@@ -182,17 +182,16 @@
                         Content="Oldingi"
                         FontFamily="JetBrains Mono"
                         BorderThickness="0"
+                    Click="btnPervouce"
                        Margin="5"/>
-                <TextBlock Foreground="#3D5160" x:Name="tbPage" Text="1" VerticalAlignment="Center" FontSize="20"/>
-                <TextBlock  Foreground="#3D5160" x:Name="tbbackslash" Text="/" VerticalAlignment="Center" FontSize="20"/>
-                <TextBlock  Foreground="#3D5160" x:Name="tbTotalPage" Text="1" VerticalAlignment="Center" FontSize="20"/>
+              
                 <Button 
-                        x:Name="btnNext"
                         Foreground="AliceBlue"
                         Background="ForestGreen"
                         Width="80" 
                         Content="Keyingi"
                         BorderThickness="0"
+                        Click="btnNext"
                         FontFamily="JetBrains Mono"
                       
                         Margin="5" />
