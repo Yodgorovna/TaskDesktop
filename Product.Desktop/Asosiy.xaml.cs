@@ -26,24 +26,28 @@ namespace Product.Desktop
 
         private async void btnRefresh(object sender, RoutedEventArgs e)
         {
-            dgProducts.Items.Clear();
-
-            var product = await _service.GetAllAsync(page);
-            searchProducts = new List<ProductViewModel>();
-            searchProducts = await _service.GetAllAsync(1);
-            for (int i = 0; i < product.Count; i++)
+            try
             {
-                ProductViewModel item = new ProductViewModel();
-                item.Id = product[i].Id;
-                item.Name = product[i].Name;
-                item.Type = product[i].Type;
-                item.Brand = product[i].Brand;
-                item.Price = product[i].Price;
-                item.CreatedAt = product[i].CreatedAt;
-                item.UpdatedAt = product[i].UpdatedAt;
+                dgProducts.Items.Clear();
 
-                dgProducts.Items.Add(item);
+                var product = await _service.GetAllAsync(page);
+                searchProducts = new List<ProductViewModel>();
+                searchProducts = await _service.GetAllAsync(1);
+                for (int i = 0; i < product.Count; i++)
+                {
+                    ProductViewModel item = new ProductViewModel();
+                    item.Id = product[i].Id;
+                    item.Name = product[i].Name;
+                    item.Type = product[i].Type;
+                    item.Brand = product[i].Brand;
+                    item.Price = product[i].Price;
+                    item.CreatedAt = product[i].CreatedAt;
+                    item.UpdatedAt = product[i].UpdatedAt;
+
+                    dgProducts.Items.Add(item);
+                }
             }
+            catch { }
         }
 
         private void btnCreate(object sender, RoutedEventArgs e)
@@ -54,55 +58,62 @@ namespace Product.Desktop
 
         private void btnSearch(object sender, RoutedEventArgs e)
         {
-            string searchTerm = tbSearch.Text;
-            dgProducts.Items.Clear();
-
-            var searchGetProduct = searchProducts.Where(p =>
-                p.Id.ToString().Contains(searchTerm) ||
-                p.Name.Contains(searchTerm) ||
-                p.Type.Contains(searchTerm) ||
-                p.Price.ToString().Contains(searchTerm) ||
-                p.Brand.Contains(searchTerm) ||
-                (p.CreatedAt != null && p.CreatedAt.ToString().Contains(searchTerm)) ||
-                (p.UpdatedAt != null && p.UpdatedAt.ToString().Contains(searchTerm)))
-             .ToList();
-
-            for (int i = 0; i < searchGetProduct.Count; i++)
+            try
             {
-                ProductViewModel item = new ProductViewModel();
-                item.Id = searchGetProduct[i].Id;
-                item.Name = searchGetProduct[i].Name;
-                item.Type = searchGetProduct[i].Type;
-                item.Brand = searchGetProduct[i].Brand;
-                item.Price = searchGetProduct[i].Price;
-                item.CreatedAt = searchGetProduct[i].CreatedAt;
-                item.UpdatedAt = searchGetProduct[i].UpdatedAt;
+                string searchTerm = tbSearch.Text;
+                dgProducts.Items.Clear();
 
-                dgProducts.Items.Add(item);
+                var searchGetProduct = searchProducts.Where(p =>
+                    p.Id.ToString().Contains(searchTerm) ||
+                    p.Name.Contains(searchTerm) ||
+                    p.Type.Contains(searchTerm) ||
+                    p.Price.ToString().Contains(searchTerm) ||
+                    p.Brand.Contains(searchTerm) ||
+                    (p.CreatedAt != null && p.CreatedAt.ToString().Contains(searchTerm)) ||
+                    (p.UpdatedAt != null && p.UpdatedAt.ToString().Contains(searchTerm)))
+                 .ToList();
+
+                for (int i = 0; i < searchGetProduct.Count; i++)
+                {
+                    ProductViewModel item = new ProductViewModel();
+                    item.Id = searchGetProduct[i].Id;
+                    item.Name = searchGetProduct[i].Name;
+                    item.Type = searchGetProduct[i].Type;
+                    item.Brand = searchGetProduct[i].Brand;
+                    item.Price = searchGetProduct[i].Price;
+                    item.CreatedAt = searchGetProduct[i].CreatedAt;
+                    item.UpdatedAt = searchGetProduct[i].UpdatedAt;
+
+                    dgProducts.Items.Add(item);
+                }
             }
-
+            catch { }
         }
 
         private async void btnNext(object sender, RoutedEventArgs e)
         {
-            dgProducts.Items.Clear();
-
-            var product = await _service.GetAllAsync(page + 1);
-            searchProducts = new List<ProductViewModel>();
-            searchProducts = await _service.GetAllAsync(1);
-            for (int i = 0; i < product.Count; i++)
+            try
             {
-                ProductViewModel item = new ProductViewModel();
-                item.Id = product[i].Id;
-                item.Name = product[i].Name;
-                item.Type = product[i].Type;
-                item.Brand = product[i].Brand;
-                item.Price = product[i].Price;
-                item.CreatedAt = product[i].CreatedAt;
-                item.UpdatedAt = product[i].UpdatedAt;
+                dgProducts.Items.Clear();
 
-                dgProducts.Items.Add(item);
+                var product = await _service.GetAllAsync(page + 1);
+                searchProducts = new List<ProductViewModel>();
+                searchProducts = await _service.GetAllAsync(1);
+                for (int i = 0; i < product.Count; i++)
+                {
+                    ProductViewModel item = new ProductViewModel();
+                    item.Id = product[i].Id;
+                    item.Name = product[i].Name;
+                    item.Type = product[i].Type;
+                    item.Brand = product[i].Brand;
+                    item.Price = product[i].Price;
+                    item.CreatedAt = product[i].CreatedAt;
+                    item.UpdatedAt = product[i].UpdatedAt;
+
+                    dgProducts.Items.Add(item);
+                }
             }
+            catch { }
         }
 
         private async void btnPervouce(object sender, RoutedEventArgs e)
@@ -161,5 +172,32 @@ namespace Product.Desktop
 
         }
 
+        private void btnDateFilter(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var to = dpBolshalnishVaqt.SelectedDate;
+                var from = dpTugashVaqt.SelectedDate;
+
+                var product = searchProducts
+                    .Where(p => p.CreatedAt > to && p.CreatedAt < from)
+                    .ToList();
+
+                for (int i = 0; i < product.Count; i++)
+                {
+                    ProductViewModel item = new ProductViewModel();
+                    item.Id = product[i].Id;
+                    item.Name = product[i].Name;
+                    item.Type = product[i].Type;
+                    item.Brand = product[i].Brand;
+                    item.Price = product[i].Price;
+                    item.CreatedAt = product[i].CreatedAt;
+                    item.UpdatedAt = product[i].UpdatedAt;
+
+                    dgProducts.Items.Add(item);
+                }
+            }
+            catch { }
+        }
     }
 }

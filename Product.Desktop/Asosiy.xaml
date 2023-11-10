@@ -10,6 +10,9 @@
         Title="Asosiy" Height="700" Width="1200" Background="Yellow">
     
     <Grid>
+        <Border HorizontalAlignment="Left" VerticalAlignment="Top" Background="Transparent" Height="30" Width="90" Margin="400,25,25,0" CornerRadius="0">
+            <Button BorderThickness="0" FontFamily="JetBrains Mono" Foreground="White" Height="25" Width="90"  Content="Date Filter" Click="btnDateFilter" Background="ForestGreen" />
+        </Border>
         <Border Background="Transparent" Height="30" Width="90" Margin="400,25,25,645" CornerRadius="0">
             <Button BorderThickness="0" FontFamily="JetBrains Mono" Foreground="White" Height="25" Width="90"  Content="Refresh" Click="btnRefresh" Background="ForestGreen" />
         </Border>
@@ -91,7 +94,7 @@
                                          FontSize="16" 
                                         FontFamily="JetBrains Mono"
                                          Width="124" 
-                   SelectedDate="02.02.2002"
+                   
                                         
                                        />
                     <Label 
@@ -107,8 +110,8 @@
                                          Background="ForestGreen" 
                                          FontSize="16" 
                             FontFamily="JetBrains Mono"
-                            SelectedDate="02.20.2020"             
-                            Width="124" />
+                                         
+                            Width="100" />
 
                 </DockPanel>
             </Border>
