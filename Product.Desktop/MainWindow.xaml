@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:Product.Desktop"
         mc:Ignorable="d"
         Title="Products" Height="750" Width="1050"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResize"
+        >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -19,7 +21,9 @@
                     CornerRadius="10"
                     Margin="10"
                     Width="120"
-                    Background="Green">
+                    Background="Green"
+                    Cursor="Hand"
+                    MouseDown="btnProductCreate_MouseDown">
                 <Label  Content="Create"
                         FontSize="18"
                         VerticalAlignment="Center"
@@ -30,9 +34,10 @@
             <Border x:Name="btnProductUpdate"
                     CornerRadius="10"
                     Margin="10"
+                    Cursor="Hand"
                     Width="120"
                     Background="Orange">
-                <Label  Content="Create"
+                <Label  Content="Update"
                         FontSize="18"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center">
@@ -42,9 +47,10 @@
             <Border x:Name="btnProductDelete"
                     CornerRadius="10"
                     Margin="10"
+                    Cursor="Hand"
                     Width="120"
                     Background="Red">
-                <Label  Content="Create"
+                <Label  Content="Delete"
                         FontSize="18"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center">
