@@ -1,12 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Product.Desktop.Interfaces;
+﻿using Product.Desktop.Interfaces;
 using Product.Desktop.Services;
 using Product.Desktop.ViewModels;
 using Product.Desktop.windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
-using System.Windows.Interop;
 
 namespace Product.Desktop
 {
@@ -57,7 +56,7 @@ namespace Product.Desktop
         {
             string searchTerm = tbSearch.Text;
             dgProducts.Items.Clear();
-          
+
             var searchGetProduct = searchProducts.Where(p =>
                 p.Id.ToString().Contains(searchTerm) ||
                 p.Name.Contains(searchTerm) ||
@@ -88,7 +87,7 @@ namespace Product.Desktop
         {
             dgProducts.Items.Clear();
 
-            var product = await _service.GetAllAsync(page+1);
+            var product = await _service.GetAllAsync(page + 1);
             searchProducts = new List<ProductViewModel>();
             searchProducts = await _service.GetAllAsync(1);
             for (int i = 0; i < product.Count; i++)
@@ -110,7 +109,7 @@ namespace Product.Desktop
         {
             dgProducts.Items.Clear();
 
-            int pagenum = page > 1 ? (page - 1) : 1; 
+            int pagenum = page > 1 ? (page - 1) : 1;
             var product = await _service.GetAllAsync(pagenum);
             searchProducts = new List<ProductViewModel>();
             searchProducts = await _service.GetAllAsync(1);
@@ -129,9 +128,38 @@ namespace Product.Desktop
             }
         }
 
-        private void deletedbtn(object sender, RoutedEventArgs e)
+        private async void deletedbtn(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Savebutton");
+
+            try
+            {
+                if (dgProducts.SelectedItems.Count == 1)
+                {
+                    if (dgProducts.SelectedItem != null)
+                    {
+                        ProductViewModel selectedItem = dgProducts.SelectedItem as ProductViewModel;
+
+                        if (selectedItem != null)
+                        {
+                            var a = await _service.DeleteAsync(selectedItem.Id);
+                            if (a > 0) MessageBox.Show("Malumot o'chirildi. Iltimos refresh tugmasini bosing!");
+                            else MessageBox.Show("Qayerdadur xatolikga duch keldik :( ");
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("O'chirish uchun 1 ta mahsulotni tanlang");
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                // Xato haqida ma'lumotni ko'rsatish
+                MessageBox.Show("Xatolik: " + ex.Message);
+            }
+
         }
+
     }
 }
